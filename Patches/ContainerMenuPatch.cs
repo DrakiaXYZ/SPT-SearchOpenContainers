@@ -54,7 +54,7 @@ namespace DrakiaXYZ.SearchOpenContainers.Patches
         public static void PatchPostfix(ref object __result, GamePlayerOwner owner, LootableContainer container)
         {
             // If the container is open, add "Search" to the top of the menu
-            if (container.DoorState == EDoorState.Open)
+            if (__result != null && container.DoorState == EDoorState.Open)
             {
                 // We can access a List<Type> as a generic list using IList
                 IList menuItems = _menuActionsField.GetValue(__result) as IList;
