@@ -32,7 +32,7 @@ namespace DrakiaXYZ.SearchOpenContainers.Patches
         protected override MethodBase GetTargetMethod()
         {
             // Setup the class type references we'll need
-            _playerActionClassType = PatchConstants.EftTypes.Single(x => x.GetMethod("GetAvailableActions") != null); // GClass1826
+            _playerActionClassType = PatchConstants.EftTypes.Single(x => x.GetMethods().Where(method => method.Name == "GetAvailableActions").Count() > 0); // GClass1826
             _menuClassType = PatchConstants.EftTypes.Single(x => x.GetMethod("SelectNextAction") != null); // GClass2888
             _menuItemClassType = PatchConstants.EftTypes.Single(x => x.GetField("TargetName") != null && x.GetField("Disabled") != null); // GClass2887
             _interactionTypeClassType = PatchConstants.EftTypes.Single(x => x.GetField("InteractionType") != null && x.BaseType == typeof(object)); // GClass2843
