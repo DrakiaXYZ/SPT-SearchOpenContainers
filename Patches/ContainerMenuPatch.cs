@@ -1,9 +1,9 @@
-﻿using Aki.Reflection.Patching;
+﻿using SPT.Reflection.Patching;
 using EFT;
 using System;
 using System.Linq;
 using System.Reflection;
-using Aki.Reflection.Utils;
+using SPT.Reflection.Utils;
 using HarmonyLib;
 using EFT.Interactive;
 using System.Collections;
