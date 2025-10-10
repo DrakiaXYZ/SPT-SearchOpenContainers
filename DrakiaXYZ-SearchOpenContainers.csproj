@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <RootNamespace>DrakiaXYZ.</RootNamespace>
+    <RootNamespace>DrakiaXYZ.SearchOpenContainers</RootNamespace>
     <Nullable>disable</Nullable>
     <Authors>DrakiaXYZ</Authors>
     <Copyright>Copyright © 2025 DrakiaXYZ</Copyright>
