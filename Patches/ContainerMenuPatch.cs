@@ -4,6 +4,7 @@ using EFT.UI;
 using HarmonyLib;
 using SPT.Reflection.Patching;
 using System;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
@@ -15,7 +16,13 @@ namespace DrakiaXYZ.SearchOpenContainers.Patches
 
         protected override MethodBase GetTargetMethod()
         {
-            return AccessTools.Method(typeof(InteractionContextHelper), nameof(InteractionContextHelper.GetAvailableActions));
+            return AccessTools.GetDeclaredMethods(typeof(InteractionContextHelper)).FirstOrDefault(mi =>
+            {
+                var parameters = mi.GetParameters();
+                return parameters.Length == 2
+                    && parameters[0].Name == "owner"
+                    && parameters[1].Name == "container";
+            });
         }
 
         [PatchPostfix]
